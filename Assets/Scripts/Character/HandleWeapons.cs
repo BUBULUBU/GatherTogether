@@ -86,28 +86,26 @@ public class HandleWeapons : MonoBehaviour
     private IEnumerator LoadWeapons(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        Debug.Log("Trying to load weapons on start..");
 
         for (int i = 0; i < equipment.GetSlots.Length; i++)
         {
-            Debug.Log(equipment.GetSlots[i].ItemObject.name);
+            if (equipment.GetSlots[i].item.Id >= 0)
+            {
+                Debug.Log(equipment.GetSlots[i].item.Name);
 
-            //if (equipment.GetSlots[i].ItemObject != null) {
+                //for (int j = 0; j < validWeapons.Count; j++)
+                //{
+                //    Debug.Log(equipment.GetSlots[i].ItemObject.name);
+                //    Debug.Log(validWeapons[j].name);
 
-            //    for (int j = 0; j < validWeapons.Count; j++)
-            //    {
-            //        Debug.Log(equipment.GetSlots[i].ItemObject.name);
-            //        Debug.Log(validWeapons[j].name);
-
-            //        if (equipment.GetSlots[i].ItemObject.name == validWeapons[j].name)
-            //        {
-            //            currentWeapon = transform.Find("Weapons/" + validWeapons[j].name).gameObject;
-            //            currentWeapon.SetActive(true);
-            //            myAnimator.SetBool(validWeapons[j].name, true);
-            //        }
-            //    }
-
-            //}
+                //    if (equipment.GetSlots[i].ItemObject.name == validWeapons[j].name)
+                //    {
+                //        currentWeapon = transform.Find("Weapons/" + validWeapons[j].name).gameObject;
+                //        currentWeapon.SetActive(true);
+                //        myAnimator.SetBool(validWeapons[j].name, true);
+                //    }
+                //}
+            }
         }
     }
 }
