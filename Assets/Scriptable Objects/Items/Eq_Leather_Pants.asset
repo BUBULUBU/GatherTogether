@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d5b5242625ff14b8929931e28bb2d6, type: 3}
+  m_Name: Eq_Leather_Pants
+  m_EditorClassIdentifier: 
+  uiDisplay: {fileID: -7197022559497164846, guid: 0252e5c4df237c348a924e7fab362570,
+    type: 3}
+  stackable: 0
+  craftable: 1
+  type: 6
+  description: Standard leather pants to protect you from cold wind.
+  data:
+    Name: Leather Pants
+    Id: 3
+    buffs:
+    - attribute: 3
+      value: 0
+      min: 0
+      max: 5
