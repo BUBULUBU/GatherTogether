@@ -35,7 +35,7 @@ public class HandleWeapons : MonoBehaviour
             equipment.GetSlots[i].OnAfterUpdate += OnAfterSlotUpdate;
         } 
 
-        StartCoroutine(LoadWeapons(1));
+        StartCoroutine(LoadWeapons(1)); // Loading screen required..
     }
 
     public void OnBeforeSlotUpdate(InventorySlot _slot)
@@ -47,7 +47,7 @@ public class HandleWeapons : MonoBehaviour
             case InterfaceType.Equipment:
                 for (int i = 0; i < validWeapons.Count; i++)
                 {
-                    if (_slot.ItemObject.name == validWeapons[i].name)
+                    if (_slot.ItemObject.data.Id == validWeapons[i].data.Id)
                     {
                         currentWeapon = transform.Find("Weapons/" + validWeapons[i].name).gameObject;
                         currentWeapon.SetActive(false);
@@ -70,7 +70,7 @@ public class HandleWeapons : MonoBehaviour
             case InterfaceType.Equipment:
                 for (int i = 0; i < validWeapons.Count; i++)
                 {
-                    if(_slot.ItemObject.name == validWeapons[i].name)
+                    if(_slot.ItemObject.data.Id == validWeapons[i].data.Id)
                     {
                         currentWeapon = transform.Find("Weapons/" + validWeapons[i].name).gameObject;
                         currentWeapon.SetActive(true);
@@ -89,22 +89,19 @@ public class HandleWeapons : MonoBehaviour
 
         for (int i = 0; i < equipment.GetSlots.Length; i++)
         {
+            if (equipment.GetSlots[i] == null) yield break;
+
             if (equipment.GetSlots[i].item.Id >= 0)
             {
-                Debug.Log(equipment.GetSlots[i].item.Name);
-
-                //for (int j = 0; j < validWeapons.Count; j++)
-                //{
-                //    Debug.Log(equipment.GetSlots[i].ItemObject.name);
-                //    Debug.Log(validWeapons[j].name);
-
-                //    if (equipment.GetSlots[i].ItemObject.name == validWeapons[j].name)
-                //    {
-                //        currentWeapon = transform.Find("Weapons/" + validWeapons[j].name).gameObject;
-                //        currentWeapon.SetActive(true);
-                //        myAnimator.SetBool(validWeapons[j].name, true);
-                //    }
-                //}
+                for (int j = 0; j < validWeapons.Count; j++)
+                {
+                    if(equipment.GetSlots[i].item.Id == validWeapons[j].data.Id)
+                    {
+                        currentWeapon = transform.Find("Weapons/" + validWeapons[j].name).gameObject;
+                        currentWeapon.SetActive(true);
+                        myAnimator.SetBool(validWeapons[j].name, true);
+                    }
+                }
             }
         }
     }

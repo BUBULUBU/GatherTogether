@@ -33,6 +33,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
         Vector2 dir = playerCamera.ScreenToWorldPoint(Input.mousePosition) - weaponIK.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle + 45, Vector3.forward);
+
         weaponIK.rotation = rotation;
 
         if (Input.GetKeyDown(KeyCode.Mouse0))

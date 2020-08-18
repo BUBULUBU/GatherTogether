@@ -27,7 +27,7 @@ public abstract class UserInterface : MonoBehaviour
 
     private void OnSlotUpdate(InventorySlot _slot)
     {
-        if(_slot.item == null) return;
+        if (_slot == null) return;
 
         if(_slot.item.Id >= 0)
         {

@@ -64,13 +64,13 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
 
         if (movement.x > 0 && !m_FacingRight)
         {
-            Flip();
-            playerInfo.rotation = Quaternion.Euler(0, 0, 0);
+            //Flip();
+            //playerInfo.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (movement.x < 0 && m_FacingRight)
         {
-            Flip();
-            playerInfo.rotation = Quaternion.Euler(0, 180, 0);
+            //Flip();
+            //playerInfo.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
