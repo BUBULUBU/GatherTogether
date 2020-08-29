@@ -15,21 +15,28 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     public Transform playerInfo;
     public GameObject ownCamera;
 
-    private Renderer myRenderer;
+    public float moveSpeed = 5f;
+
+    [SerializeField]
+    private Renderer[] myRenderer;
+
     private Animator myAnimator;
     private Rigidbody2D myRigbody;
     private PlayerManager playerInventory;
 
-    Vector2 movement;
-
     private int sortingOrderBase = 5000;
-    public float moveSpeed = 5f;
 
     private bool m_FacingRight = true;
 
+    Vector2 movement;
+
     private void Awake()
     {
-        myRenderer = GetComponent<Renderer>();
+        for (int i = 0; i < myRenderer.Length; i++)
+        {
+            myRenderer[i].GetComponent<Renderer>();
+        }
+
         myAnimator = GetComponent<Animator>();
         myRigbody = GetComponent<Rigidbody2D>();
         playerInventory = GetComponent<PlayerManager>();
@@ -43,11 +50,17 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        myRenderer.sortingOrder = (int)(transform.position.y * -sortingOrderBase);
+        for (int i = 0; i < myRenderer.Length; i++)
+        {
+            myRenderer[i].sortingOrder = myRenderer[i].sortingOrder + ((int)(transform.position.y * -sortingOrderBase));
+        }
 
         if (!photonView.IsMine) return;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        myAnimator.SetFloat("vertical", Input.GetAxisRaw("Vertical"));
+        myAnimator.SetFloat("horizontal", Input.GetAxisRaw("Horizontal"));
     }
 
     void FixedUpdate()
@@ -59,8 +72,6 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     private void Move()
     {
         myRigbody.MovePosition(myRigbody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-
-        myAnimator.SetFloat("MoveSpeed", Mathf.Abs(movement.x) + Mathf.Abs(movement.y));
 
         if (movement.x > 0 && !m_FacingRight)
         {
