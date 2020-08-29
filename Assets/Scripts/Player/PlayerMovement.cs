@@ -59,8 +59,7 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        myAnimator.SetFloat("vertical", Input.GetAxisRaw("Vertical"));
-        myAnimator.SetFloat("horizontal", Input.GetAxisRaw("Horizontal"));
+        myAnimator.SetFloat("PlayerSpeed", Mathf.Abs(Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("Horizontal")));
     }
 
     void FixedUpdate()
