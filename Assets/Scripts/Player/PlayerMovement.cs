@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using JetBrains.Annotations;
 
 public class PlayerMovement : MonoBehaviourPunCallbacks
 {
@@ -24,9 +25,11 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     private Rigidbody2D myRigbody;
     private PlayerManager playerInventory;
 
+    public ParticleSystem dust;
+
     private int sortingOrderBase = 5000;
 
-    private bool m_FacingRight = true;
+    private bool activeDust = false;
 
     Vector2 movement;
 
@@ -59,7 +62,24 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        myAnimator.SetFloat("PlayerSpeed", Mathf.Abs(Input.GetAxisRaw("Vertical") + Input.GetAxisRaw("Horizontal")));
+        myAnimator.SetFloat("PlayerSpeed", Mathf.Abs(movement.y) + Mathf.Abs(movement.x));
+
+        if(Mathf.Abs(movement.y) + Mathf.Abs(movement.x) >= 0.1)
+        {
+            if (!activeDust)
+            {
+                dust.Play();
+                activeDust = true;
+            }
+        }
+        else
+        {
+            if (activeDust)
+            {
+                dust.Stop();
+                activeDust = false;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -71,25 +91,5 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     private void Move()
     {
         myRigbody.MovePosition(myRigbody.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-
-        if (movement.x > 0 && !m_FacingRight)
-        {
-            //Flip();
-            //playerInfo.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (movement.x < 0 && m_FacingRight)
-        {
-            //Flip();
-            //playerInfo.rotation = Quaternion.Euler(0, 180, 0);
-        }
-    }
-
-    private void Flip()
-    {
-        m_FacingRight = !m_FacingRight;
-
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
     }
 }
