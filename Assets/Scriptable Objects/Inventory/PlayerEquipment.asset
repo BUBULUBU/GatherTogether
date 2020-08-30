@@ -42,22 +42,10 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 02000000
       item:
-        Name: Weapon_Sword_Gold
-        Id: 10
-        buffs:
-        - attribute: 0
-          value: 3
-          min: 0
-          max: 5
-        - attribute: 1
-          value: 1
-          min: 0
-          max: 2
-        - attribute: 3
-          value: 7
-          min: 0
-          max: 10
-      amount: 1
+        Name: 
+        Id: -1
+        buffs: []
+      amount: 0
     - AllowedItems: 03000000
       item:
         Name: 

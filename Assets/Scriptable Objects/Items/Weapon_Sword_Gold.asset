@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d5b5242625ff14b8929931e28bb2d6, type: 3}
   m_Name: Weapon_Sword_Gold
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: -5749219135116485544, guid: 0252e5c4df237c348a924e7fab362570,
-    type: 3}
+  uiDisplay: {fileID: 21300000, guid: e691e5257f6f5af4b97c8319d1d5889d, type: 3}
   stackable: 0
   craftable: 1
   type: 2

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9d5b5242625ff14b8929931e28bb2d6, type: 3}
-  m_Name: Eq_Leather_Pants
+  m_Name: Eq_Scrappy_Pants
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: -7197022559497164846, guid: 0252e5c4df237c348a924e7fab362570,
+  uiDisplay: {fileID: 265257251793760462, guid: 0252e5c4df237c348a924e7fab362570,
     type: 3}
   stackable: 0
   craftable: 1
@@ -20,7 +20,7 @@ MonoBehaviour:
   description: Standard leather pants to protect you from cold wind.
   data:
     Name: Leather Pants
-    Id: 3
+    Id: 2
     buffs:
     - attribute: 3
       value: 0

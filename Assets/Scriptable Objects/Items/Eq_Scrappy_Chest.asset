@@ -10,19 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9d5b5242625ff14b8929931e28bb2d6, type: 3}
-  m_Name: Eq_Leather_Helmet
+  m_Name: Eq_Scrappy_Chest
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: -8312892957315238385, guid: 0252e5c4df237c348a924e7fab362570,
+  uiDisplay: {fileID: -8492552888487264621, guid: 0252e5c4df237c348a924e7fab362570,
     type: 3}
   stackable: 0
   craftable: 1
-  type: 4
-  description: Standard leather helmet.
+  type: 5
+  description: Standard leather chestplate, but atleast it gives you some protection,
+    nice isn't it?
   data:
-    Name: Leather Helmet
-    Id: 2
+    Name: Leather Chestplate
+    Id: 1
     buffs:
-    - attribute: 1
+    - attribute: 0
       value: 0
       min: 0
-      max: 5
+      max: 20
+    - attribute: 3
+      value: 0
+      min: 0
+      max: 10

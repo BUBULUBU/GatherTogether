@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d5b5242625ff14b8929931e28bb2d6, type: 3}
   m_Name: Item_Gold_Nugget
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: -1424149648933297900, guid: 0252e5c4df237c348a924e7fab362570,
+  uiDisplay: {fileID: -7233011382136180611, guid: 0252e5c4df237c348a924e7fab362570,
     type: 3}
   stackable: 1
   craftable: 0
@@ -20,5 +20,5 @@ MonoBehaviour:
   description: Gold nugget, probably you can craft something out of it?
   data:
     Name: Gold Nugget
-    Id: 4
+    Id: 5
     buffs: []

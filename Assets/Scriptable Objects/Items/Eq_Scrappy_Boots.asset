@@ -10,24 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9d5b5242625ff14b8929931e28bb2d6, type: 3}
-  m_Name: Eq_Leather_Chest
+  m_Name: Eq_Scrappy_Boots
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 4408609365354642691, guid: 0252e5c4df237c348a924e7fab362570,
+  uiDisplay: {fileID: 4409330123439273872, guid: 0252e5c4df237c348a924e7fab362570,
     type: 3}
   stackable: 0
-  craftable: 1
-  type: 5
-  description: Standard leather chestplate, but atleast it gives you some protection,
-    nice isn't it?
+  craftable: 0
+  type: 7
+  description: Standard leather boots, makes you fast.
   data:
-    Name: Leather Chestplate
-    Id: 1
+    Name: Leather Boots
+    Id: 0
     buffs:
-    - attribute: 0
+    - attribute: 2
       value: 0
       min: 0
-      max: 20
-    - attribute: 3
-      value: 0
-      min: 0
-      max: 10
+      max: 15
